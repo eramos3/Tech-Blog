@@ -40,8 +40,8 @@ router.get('/', withAuth, (req, res) => {
         });
 });
 
-router.put('/edit/:id', withAuth, (req, res) => {
-    Post.findByPk({
+router.get('/edit/:id', withAuth, (req, res) => {
+    Post.findOne({
         attributes: [
             'id',
             'post_desc',

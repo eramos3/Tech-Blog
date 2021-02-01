@@ -12,15 +12,15 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const sess = {
   secret: 'Super secret secret',
-  // rolling: true,
-  cookie: {},
+  rolling: true,
+  cookie: {maxAge:30000},
   resave: false,
   saveUninitialized: false,
   store: new SequelizeStore({
     db: sequelize,
   })
 };
-// maxAge:200000
+
 app.use(session(sess));
 
 const hbs = exphbs.create({ helpers });
